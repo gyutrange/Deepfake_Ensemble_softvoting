@@ -1,15 +1,20 @@
 # Deepfake Soft-Voting Ensemble
 
-FreqNet × GenConViT × CaFft ( + optional legacy detectors)
+This repository presents a simple yet effective experiment: by applying soft voting (weighted averaging) across models that capture different perspectives — frequency, spatial context, and spectral features — we achieved AUC 1.0000 / Accuracy 0.9667 / F1 0.9789 / FP=0 on the competition’s Final Test Set.
 
-간단한 소프트 보팅(가중 평균) 만으로도 대회 Final Test에서 AUC 1.0000 / Acc 0.9667 / F1 0.9789 / FP=0 를 달성한 실험 레포입니다.
-핵심 아이디어는 서로 다른 관점(주파수·공간·스펙트럼)을 갖는 모델을 확률 가중 평균으로 섞는 것입니다.
+https://gyutrange.github.io/Deepfake-Ensemble/
 
 ✨ Highlights
 
-아이디어: FreqNet(주파수) · GenConViT(전역 문맥/공간 패턴) · CaFft(FFT 기반 스펙트럼) 소프트 보팅
+Idea: Soft voting with
 
-최종 성능 (Final Test Set)
+FreqNet (frequency-domain artifacts)
+
+GenConViT (global/spatial context via vision transformer)
+
+CaFft (FFT-based spectral cues)
+
+Final Test Results:
 
 AUC: 1.0000
 
@@ -17,15 +22,15 @@ Accuracy: 0.9667
 
 F1: 0.9789
 
-Confusion (th=0.5): TP=93, TN=23, FP=0, FN=4
+Confusion (threshold=0.5): TP=93, TN=23, FP=0, FN=4
 
-Fake acc=0.9588 / Real acc=1.0000
+Fake detection accuracy = 0.9588 / Real detection accuracy = 1.0000
 
-가중치 학습 결과(예시): GenConViT에 ~0.96이 몰리고, 나머지는 미세 보정 역할로 수렴
+Learned Weights: ~0.96 allocated to GenConViT, with the rest acting as minor correction factors.
 
-운영 친화: 오탐(FP) 0 유지 → 사람 리뷰/정책 비용 절감
+Operational benefit: FP=0 ensures no real videos are mistakenly flagged, reducing manual review and policy costs.
 
-참고: 내부 검증(399 샘플)에서도 Precision=1.0000 / FP=0로 일관된 패턴을 보였습니다(Recall=0.9286).
+Validation Consistency: On an internal set of 399 samples, we observed Precision=1.0000, FP=0, with Recall at 0.9286.
 
 ### Reference
 https://github.com/chuangchuangtan/FreqNet-DeepfakeDetection
