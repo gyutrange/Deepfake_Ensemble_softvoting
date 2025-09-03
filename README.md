@@ -26,3 +26,7 @@ Fake acc=0.9588 / Real acc=1.0000
 운영 친화: 오탐(FP) 0 유지 → 사람 리뷰/정책 비용 절감
 
 참고: 내부 검증(399 샘플)에서도 Precision=1.0000 / FP=0로 일관된 패턴을 보였습니다(Recall=0.9286).
+
+### Reference
+https://github.com/chuangchuangtan/FreqNet-DeepfakeDetection
+https://github.com/erprogs/GenConViT
